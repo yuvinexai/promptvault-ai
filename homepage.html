@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PromptVault AI — Find the Prompt. Create Something Better.</title>
+<meta name="description" content="Discover, copy and launch premium AI prompts for ChatGPT, Claude, Grok, Gemini and more.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="#home" aria-label="PromptVault AI home">
+      <span class="brand-mark">P</span>
+      <span class="brand-name">PromptVault <span>AI</span></span>
+    </a>
+    <div class="nav-links" role="navigation">
+      <a href="#home" data-nav="home" class="active">Home</a>
+      <a href="#chatgpt" data-nav="chatgpt">ChatGPT</a>
+      <a href="#claude" data-nav="claude">Claude</a>
+      <a href="#grok" data-nav="grok">Grok</a>
+      <a href="#gemini" data-nav="gemini">Gemini</a>
+      <a href="#other" data-nav="other">Other AI</a>
+    </div>
+    <div class="nav-actions">
+      <a href="#trending" class="btn-cta" style="text-decoration:none">Explore Prompts</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="mobile-panel" id="mobilePanel" aria-hidden="true">
+  <div class="mobile-sheet">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <strong>PromptVault AI</strong>
+      <button id="closeMenu" class="icon-btn" aria-label="Close menu" style="background:#fff;color:var(--black);border:1px solid var(--line)">✕</button>
+    </div>
+    <a href="#home" data-mnav="home" class="active">Home</a>
+    <a href="#chatgpt" data-mnav="chatgpt">ChatGPT</a>
+    <a href="#claude" data-mnav="claude">Claude</a>
+    <a href="#grok" data-mnav="grok">Grok</a>
+    <a href="#gemini" data-mnav="gemini">Gemini</a>
+    <a href="#other" data-mnav="other">Other AI</a>
+    <a href="#trending" style="background:var(--maroon);color:#fff;text-align:center">Explore Trending →</a>
+  </div>
+</div>
+
+<main id="home">
+  <section class="hero">
+    <span class="eyebrow"><i></i> 50 HANDCRAFTED PROMPTS — UPDATED WEEKLY — NO LOGIN NEEDED</span>
+    <h1>Find the Prompt.<br><em>Create Something Better.</em></h1>
+    <p>Discover polished, ready-to-copy prompts for ChatGPT, Claude, Grok, Gemini and more. Filter by platform and category, copy in one tap, and launch the right AI instantly.</p>
+
+    <div class="search-wrap" role="search">
+      <span aria-hidden="true" style="margin-left:6px">⌕</span>
+      <input id="globalSearch" type="search" placeholder="Search prompts..." aria-label="Search prompts">
+      <button class="search-btn" id="globalSearchBtn" aria-label="Search">→</button>
+    </div>
+
+    <div class="chips" id="platformChips" aria-label="Platform filters">
+      <button class="chip active" data-platform="all">All Platforms</button>
+      <button class="chip" data-platform="ChatGPT">ChatGPT</button>
+      <button class="chip" data-platform="Claude">Claude</button>
+      <button class="chip" data-platform="Grok">Grok</button>
+      <button class="chip" data-platform="Gemini">Gemini</button>
+      <button class="chip" data-platform="Other AI">Other AI</button>
+    </div>
+
+    <div class="stats">
+      <span><b id="statCount">50</b> prompts</span>
+      <span>•</span><span><b>10</b> categories</span>
+      <span>•</span><span>One-tap copy & launch</span>
+    </div>
+  </section>
+
+  <!-- Trending -->
+  <section class="container" id="trending">
+    <div class="section-head">
+      <div>
+        <h2>Trending <span>Prompts</span></h2>
+        <p>Most copied this week — hand-picked for quality and usefulness.</p>
+      </div>
+      <div class="head-actions">
+        <div class="cat-bar" id="trendingCats"></div>
+      </div>
+    </div>
+    <div class="grid" id="trendingGrid"></div>
+  </section>
+
+  <!-- All / Browse -->
+  <section class="container" id="browse">
+    <div class="section-head">
+      <div>
+        <h2>Browse all prompts</h2>
+        <p>Filter by category or search by keyword. Cards update instantly.</p>
+      </div>
+      <label class="mini-search" aria-label="Search prompts">
+        <input id="browseSearch" type="search" placeholder="Search titles, descriptions…">
+        <button class="icon-btn" id="browseSearchBtn" aria-label="Search">⌕</button>
+      </label>
+    </div>
+    <div class="cat-bar" id="browseCats" style="margin-bottom:12px"></div>
+    <div class="grid" id="browseGrid"></div>
+  </section>
+
+  <!-- Platform sections -->
+  <section class="container" id="chatgpt">
+    <div class="platform-banner">
+      <div>
+        <div class="platform-meta"><span class="badge badge-platform">ChatGPT</span><span class="cat-label">OpenAI • chatgpt.com</span></div>
+        <h3>ChatGPT Prompts</h3>
+        <p>Writing, coding, study and business prompts tuned for ChatGPT's instruction style.</p>
+      </div>
+      <a class="btn-cta" href="https://chatgpt.com/" target="_blank" rel="noopener">Open ChatGPT ↗</a>
+    </div>
+    <div class="cat-bar" id="cats-chatgpt"></div>
+    <div class="grid" id="grid-chatgpt" style="margin-top:12px"></div>
+  </section>
+
+  <section class="container" id="claude">
+    <div class="platform-banner">
+      <div>
+        <div class="platform-meta"><span class="badge" style="background:#4a2c0a;color:#fff;border-color:#4a2c0a">Claude</span><span class="cat-label">Anthropic • claude.ai</span></div>
+        <h3>Claude Prompts</h3>
+        <p>Thoughtful, long-context prompts — research, analysis and nuanced writing.</p>
+      </div>
+      <a class="btn-cta" href="https://claude.ai/" target="_blank" rel="noopener">Open Claude ↗</a>
+    </div>
+    <div class="cat-bar" id="cats-claude"></div>
+    <div class="grid" id="grid-claude" style="margin-top:12px"></div>
+  </section>
+
+  <section class="container" id="grok">
+    <div class="platform-banner">
+      <div>
+        <div class="platform-meta"><span class="badge" style="background:#111;color:#fff">Grok</span><span class="cat-label">xAI • grok.com</span></div>
+        <h3>Grok Prompts</h3>
+        <p>Witty, real-time and unfiltered — great for social, humor and bold ideas.</p>
+      </div>
+      <a class="btn-cta" href="https://grok.com/" target="_blank" rel="noopener">Open Grok ↗</a>
+    </div>
+    <div class="cat-bar" id="cats-grok"></div>
+    <div class="grid" id="grid-grok" style="margin-top:12px"></div>
+  </section>
+
+  <section class="container" id="gemini">
+    <div class="platform-banner">
+      <div>
+        <div class="platform-meta"><span class="badge" style="background:#1a3a5a;color:#fff;border-color:#1a3a5a">Gemini</span><span class="cat-label">Google • gemini.google.com</span></div>
+        <h3>Gemini Prompts</h3>
+        <p>Multimodal, research and productivity prompts built for Gemini's strengths.</p>
+      </div>
+      <a class="btn-cta" href="https://gemini.google.com/" target="_blank" rel="noopener">Open Gemini ↗</a>
+    </div>
+    <div class="cat-bar" id="cats-gemini"></div>
+    <div class="grid" id="grid-gemini" style="margin-top:12px"></div>
+  </section>
+
+  <section class="container" id="other">
+    <div class="platform-banner">
+      <div>
+        <div class="platform-meta"><span class="badge badge-other">Other AI</span><span class="cat-label">Perplexity • Midjourney • Runway • etc.</span></div>
+        <h3>Other AI Prompts</h3>
+        <p>Specialized prompts for image, video, research and niche tools — each card opens its official site.</p>
+      </div>
+      <a class="btn-cta" href="https://www.perplexity.ai/" target="_blank" rel="noopener">Open Perplexity ↗</a>
+    </div>
+    <div class="cat-bar" id="cats-other"></div>
+    <div class="grid" id="grid-other" style="margin-top:12px"></div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h4>PromptVault AI</h4>
+      <p>Premium prompt library for makers, marketers, students and builders. Copy a prompt, open the right AI, ship faster. Light, fast, no login.</p>
+    </div>
+    <div class="footer-links">
+      <div>
+        <h5>Platforms</h5>
+        <a href="#chatgpt">ChatGPT</a><a href="#claude">Claude</a><a href="#grok">Grok</a><a href="#gemini">Gemini</a><a href="#other">Other AI</a>
+      </div>
+      <div>
+        <h5>Categories</h5>
+        <a href="#browse">Writing</a><a href="#browse">Coding</a><a href="#browse">Image Generation</a><a href="#browse">Productivity</a>
+      </div>
+      <div>
+        <h5>Official</h5>
+        <a href="https://chatgpt.com/" target="_blank" rel="noopener">chatgpt.com</a>
+        <a href="https://claude.ai/" target="_blank" rel="noopener">claude.ai</a>
+        <a href="https://grok.com/" target="_blank" rel="noopener">grok.com</a>
+        <a href="https://gemini.google.com/" target="_blank" rel="noopener">gemini.google.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="copy">© 2026 PromptVault AI — Crafted with care. Not affiliated with OpenAI, Anthropic, xAI or Google. All prompts are original.</div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite">✓ Copied to clipboard</div>
+
+<script src="script.js"></script>
+</body>
+</html>
